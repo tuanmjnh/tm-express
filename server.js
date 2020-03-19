@@ -9,7 +9,8 @@ app.use('/public', express.static(path.join(__dirname, 'public')))
 
 app.get('/', function(req, res, next) {
   // res.render('index', { title: 'Express' })
-  res.end('TM-Store Express Server api', { title: 'Express' })
+  var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+  res.end('TM-Store Express Server api' + fullUrl, { title: 'Express' })
 })
 
 app.get('/host', function(req, res, next) {
