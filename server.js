@@ -5,9 +5,9 @@ app = express();
 // app.use(serveStatic(__dirname + "/spa"));
 var port = process.env.PORT || 5000;
 
-app.use(`${process.env.BASE_URL}${process.env.PUBLIC_PATH}`, express.static(process.env.PUBLIC_DIR))
+app.use('/public', express.static(path.join(__dirname, 'public')))
 
-app.get(process.env.BASE_URL, function(req, res, next) {
+app.get('/', function(req, res, next) {
   // res.render('index', { title: 'Express' })
   res.end('TM-Store Express Server api', { title: 'Express' })
 })
