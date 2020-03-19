@@ -12,6 +12,11 @@ app.get('/', function(req, res, next) {
   res.end('TM-Store Express Server api', { title: 'Express' })
 })
 
+app.get('/host', function(req, res, next) {
+  // res.render('index', { title: 'Express' })
+  res.end(process.env.HOST, { title: 'Express' })
+})
+
 const server = app.listen(port) //, '192.168.1.10' // '127.0.0.1'
   .on('listening', () => {
     process.env.HOST = `http://${server.address().address}:${port}`
